@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'contact' => 'pages#contact'
 
-  get '/instacall' => 'users#brain'
+  get '/instacall' => 'instacall#brain'
 
   root 'pages#index'
 
