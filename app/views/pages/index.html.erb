@@ -1,6 +1,10 @@
-<% if current_user %>
-Signed in as <%= current_user.name %>
-<% end %>
+<div class="jumbotron">
+  <div class="container">
+    <h1>SHARE SMARTER</h1>
+        <p>Natively embed Instagram photos on Twitter</p>
+        <p><a href="#" class="btn btn-success btn-lg">Get Started »</a></p>
+  </div>
+</div>
 
 <% if almost_current_user %>
 Click here to link Instagram: <a href="https://api.instagram.com/oauth/authorize/?client_id=df66fefc3c6d4f3d9073f01ffec75120&redirect_uri=http://localhost:3000/instacall&response_type=code">do it</a>

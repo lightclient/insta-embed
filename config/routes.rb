@@ -7,9 +7,12 @@ Rails.application.routes.draw do
     redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
   end
 
+  get 'contact' => 'pages#contact'
+
   get '/instacall' => 'users#link_instagram'
 
   root 'pages#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
