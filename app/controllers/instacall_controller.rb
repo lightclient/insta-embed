@@ -4,7 +4,7 @@ class InstacallController < ApplicationController
 
   def brain
     if params[:code]
-      link_instagram(:code)
+      link_instagram()
     end
 
     if params[:hub_challenge]
@@ -12,8 +12,8 @@ class InstacallController < ApplicationController
     end
   end
 
-  def link_instagram(code)
-    response = Instagram.get_access_token(params[code, :redirect_uri => CALLBACK_URL)
+  def link_instagram()
+    response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
     session[:access_token] = response.access_token
 
     client = Instagram.client(:access_token => session[:access_token])
