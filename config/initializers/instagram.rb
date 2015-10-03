@@ -5,4 +5,4 @@ Instagram.configure do |config|
   config.client_secret = Rails.application.secrets.instagram_api_client_secret
 end
 
-CALLBACK_URL = "http://localhost:3000/instacall"
+CALLBACK_URL = "https://insta-embed.herokuapp.com/instacall"
