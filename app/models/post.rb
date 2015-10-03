@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
 
   def self.create_post_from_media_id(id)
 
-    data = Net::HTTP.get_response(URI.parse("https://api.instagram.com/v1/media/" + id + "client_id=2954598143aa4dbba123da8a68de1466")).body
+    data = Net::HTTP.get_response(URI.parse("https://api.instagram.com/v1/media/" + id + "/?client_id=2954598143aa4dbba123da8a68de1466")).body
 
     puts data
 
