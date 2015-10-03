@@ -38,7 +38,6 @@ gem 'instagram', '~> 1.1.6'
 group :production do
   gem 'pg',             '0.17.1'
   gem 'rails_12factor', '0.0.2'
-  gem 'heroku_secrets'
 end
 
 group :development, :test do
