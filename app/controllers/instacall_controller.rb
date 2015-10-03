@@ -8,9 +8,10 @@ class InstacallController < ApplicationController
     end
 
     puts params.inspect
+    puts params["hub.challenge"]
 
-    if params[:hub][:challenge]
-      render text => params[:hub][:challenge]
+    if params["hub.challenge"]
+      render text => params["hub.challenge"]
     end
   end
 
