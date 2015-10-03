@@ -8,7 +8,7 @@ class InstacallController < ApplicationController
     end
 
     if params[:hub_challenge]
-      render params[:hub_challenge]
+      render text => params[:hub_challenge]
     end
   end
 
