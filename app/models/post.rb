@@ -10,11 +10,11 @@ class Post < ActiveRecord::Base
 
     puts data
 
-    user = User.where(instagram_uid: data["_json"][0]["data"]["user"]["id"])
+    user = User.where(instagram_uid: data["data"]["user"]["id"])
     user.post.create(
-      ig_body: data["_json"][0]["data"]["caption"]["text"],
-      media: data["_json"][0]["data"]["images"]["standard_resolution"]["url"],
-      tweet_body: data["_json"][0]["data"]["caption"]["text"],
+      ig_body: data["data"]["caption"]["text"],
+      media: data["data"]["images"]["standard_resolution"]["url"],
+      tweet_body: data["data"]["caption"]["text"]
     )
     user
   end
