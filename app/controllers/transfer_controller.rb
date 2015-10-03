@@ -3,9 +3,9 @@ class TransferController < ApplicationController
 
   def index
     render plain: "HELLO THERE FRIENDS"
-    if params["_json"]["data"]["media_id"]
+    if params[0]["_json"]["data"]["media_id"]
 
-      Post.create_post_from_media_id(params["_json"]["data"]["media_id"])
+      Post.create_post_from_media_id(params[0]["_json"]["data"]["media_id"])
 
     end
   end
