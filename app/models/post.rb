@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
     data = Net::HTTP.get_response(URI.parse("https://api.instagram.com/v1/media/" + id + "client_id=2954598143aa4dbba123da8a68de1466")).body
 
     user = User.where(instagram_uid: data[:data][:user][:id])
-    user.update(
+    user.post.create(
       ig_body: data[:data][:caption][:text],
       media: data[:data][:images][:standard_resolution][:url],
       tweet_body: data[:data][:caption][:text],
