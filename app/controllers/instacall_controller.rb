@@ -7,8 +7,10 @@ class InstacallController < ApplicationController
       link_instagram()
     end
 
-    if params[:hub_challenge]
-      render text => params[:hub_challenge]
+    puts params.inspect
+
+    if params[:hub][:challenge]
+      render text => params[:hub][:challenge]
     end
   end
 
