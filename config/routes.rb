@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get "/oauth/instagram" do
+    redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
+  end
+
+  get '/instacall' => 'users#link_instagram'
+
+  root 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
