@@ -3,13 +3,14 @@ require "instagram"
 class InstacallController < ApplicationController
 
   def brain
+    # checks if :code parameter used to authorize Instagram is in URL
     if params[:code]
       link_instagram()
-    end
-
-    if params["hub.challenge"]
+    # Checks if Instagram hub.challenge is present if URL, if so, server responds with hub.challenge to authorize subscription
+    elsif params["hub.challenge"]
       render plain: params["hub.challenge"]
     end
+
   end
 
   def link_instagram()
@@ -32,5 +33,10 @@ class InstacallController < ApplicationController
 
     redirect_to root_path
   end
+
+  def tweet_photo()
+    puts params
+  end
+
 
 end
