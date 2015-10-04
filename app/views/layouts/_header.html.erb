@@ -1,5 +1,6 @@
 <header>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,900italic' rel='stylesheet' type='text/css'>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -22,12 +23,13 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
+            <li> <%= link_to "Settings", settings_path %></li>
             <li> <%= link_to "Logout", logout_path %></li>
           <% else %>
             <li> <%= link_to "Login", "/auth/twitter" %></li>
           <% end %>
 
-          <li><a href="#">Donate</a></li>
+          <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=V4TANHBSJ739Y">Donate</a></li>
           <li><%= link_to "Contact", contact_path %></li>
         </ul>
       </div><!-- /.navbar-collapse -->

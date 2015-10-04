@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get 'contact' => 'pages#contact'
 
+  get 'settings' => 'user#settings'
+
   get '/instacall' => 'instacall#brain'
 
   post '/instacall' => 'transfer#index'

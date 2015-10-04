@@ -3,15 +3,16 @@
   <% @posts = current_user.posts %>
 
     <div class="container">
+      <h1> Your Uploads </h1>
       <div class="row">
           <% @posts.each do |m| %>
               <div class="col-sm-6 col-md-4">
                 <a href="#" class="thumbnail g">
 
                   <% if m.ig_body == m.tweet_body %>
-                    <img src="<%= m.media %>" alt="...">
+                    <img src="<%= m.media %>" alt="">
                   <% else %>
-                    <img class="bw" src="<%= m.media %>" alt="...">
+                    <img class="bw" src="<%= m.media %>" alt="">
                   <% end %>
                 </a>
             </div>
@@ -25,18 +26,37 @@
     <div class="container">
       <h1>Please Link Your Instagram Account</h1>
           <p>This is the last step, we promise.</p>
-          <p><a href="https://api.instagram.com/oauth/authorize/?client_id=df66fefc3c6d4f3d9073f01ffec75120&redirect_uri=https://insta-embed.herokuapp.com/instacall&response_type=code" class="btn btn-success btn-lg">Let's Link Them »</a></p>
+          <p><a href="https://api.instagram.com/oauth/authorize/?client_id=df66fefc3c6d4f3d9073f01ffec75120&redirect_uri=https://insta-embed.herokuapp.com/instacall&response_type=code" class="btn btn-custom btn-lg">Let's Link Them »</a></p>
     </div>
   </div>
 
 <% else %>
 
   <div class="jumbotron">
-    <div class="container">
+    <div class="container text-center">
       <h1>SHARE SMARTER</h1>
           <p>Natively embed Instagram photos on Twitter</p>
-          <p><a href="#" class="btn btn-success btn-lg">Get Started »</a></p>
+          <p><a href="/auth/twitter" class="btn btn-custom btn-lg">Get Started »</a></p>
     </div>
   </div>
+  <div class="container" style="padding-top: 30px;">
+    <div class="row">
+      <div class="col-md-3">
+        <h4><span class="glyphicon glyphicon-ok-sign"></span> Authorize Twitter</h4>
+        <p class="thin">First, click the 'Get Started' button above and you will be taken to Twitter in order to authenticate your account. This will allow us to share your Instagram photos to your Twitter.</p>
+      </div>
+      <div class="col-md-3">
+        <h4><span class="glyphicon glyphicon-ok-sign"></span> Authorize Instagram</h4>
+        <p class="thin">Second, you will be asked to authenticate your Instagram account in order for our server to recieve updates when you post a new photo.</p>
+      </div>
+      <div class="col-md-3">
+        <h4><span class="glyphicon glyphicon-ok-sign"></span> Upload Photo to Instagram</h4>
+        <p class="thin">After authorizing your Twitter and Instagram accounts, go ahead and post a photo to Instagram like normal (Don't share to Twitter).</p>
+      </div>
+      <div class="col-md-3">
+        <h4><span class="glyphicon glyphicon-ok-sign"></span> Photo is Pushed to Twitter</h4>
+        <p class="thin">Once you post a photo to Instagram our servers will instantly recieve a notification and we will push that photo and its caption to your Twitter.</p>
+      </div>
+    </div>
 
 <% end %>
