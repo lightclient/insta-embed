@@ -1,11 +1,31 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1>SHARE SMARTER</h1>
-        <p>Natively embed Instagram photos on Twitter</p>
-        <p><a href="#" class="btn btn-success btn-lg">Get Started »</a></p>
-  </div>
-</div>
+<% if current_user %>
 
-<% if almost_current_user %>
-Click here to link Instagram: <a href="https://api.instagram.com/oauth/authorize/?client_id=df66fefc3c6d4f3d9073f01ffec75120&redirect_uri=https://insta-embed.herokuapp.com/instacall&response_type=code">do it</a>
+  <% @posts = current_user.posts %>
+  <% @posts.each do |m| %>
+     	<div class="message">
+        <p class="content"><%= m.ig_body %></p>
+        <p class="time"><%= m.created_at %></p>
+      </div>
+  <% end %>
+
+<% elsif almost_current_user%>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Please Link Your Instagram Account</h1>
+          <p>This is the last step, we promise.</p>
+          <p><a href="https://api.instagram.com/oauth/authorize/?client_id=df66fefc3c6d4f3d9073f01ffec75120&redirect_uri=https://insta-embed.herokuapp.com/instacall&response_type=code" class="btn btn-success btn-lg">Let's Link Them »</a></p>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>SHARE SMARTER</h1>
+          <p>Natively embed Instagram photos on Twitter</p>
+          <p><a href="#" class="btn btn-success btn-lg">Get Started »</a></p>
+    </div>
+  </div>
+
 <% end %>
