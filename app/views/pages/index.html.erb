@@ -7,14 +7,12 @@
           <% @posts.each do |m| %>
               <div class="col-sm-6 col-md-4">
                 <a href="#" class="thumbnail g">
-                  <!--
+
                   <% if m.ig_body == m.tweet_body %>
-                    <div class="image-holder g">
+                    <img src="<%= m.media %>" alt="...">
                   <% else %>
-                    <div class="image-holder r">
-                  <% end %>
                     <img class="bw" src="<%= m.media %>" alt="...">
-                  </div>-->
+                  <% end %>
                 </a>
             </div>
           <% end %>
