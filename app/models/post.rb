@@ -40,7 +40,7 @@ class Post < ActiveRecord::Base
   end
 
   def post_to_twitter
-    user.twitter.update_with_media(tweet_body, File.new(media))
+    user.twitter.update_with_media(tweet_body, open(URI.parse(media)))
   end
 
 end
