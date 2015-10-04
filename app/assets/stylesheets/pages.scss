@@ -7,7 +7,12 @@ img.bw {
   -webkit-filter: grayscale(100%);
 }
 
-.image-holder.g:after {
+.thumbnail.g {
+    display:inline-block;
+    position: relative;
+}
+
+.thumbnail.g:after {
     content:'';
     top: 0;
     left: 0;

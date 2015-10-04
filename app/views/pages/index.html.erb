@@ -6,14 +6,15 @@
       <div class="row">
           <% @posts.each do |m| %>
               <div class="col-sm-6 col-md-4">
-                <a href="#" class="thumbnail">
+                <a href="#" class="thumbnail g">
+                  <!--
                   <% if m.ig_body == m.tweet_body %>
                     <div class="image-holder g">
                   <% else %>
                     <div class="image-holder r">
                   <% end %>
                     <img class="bw" src="<%= m.media %>" alt="...">
-                    </div>
+                  </div>-->
                 </a>
             </div>
           <% end %>
