@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
     user = User.where(instagram_uid: data["data"]["user"]["id"])
 
 
-    tweet = tweet_body: data["data"]["caption"]["text"]
+    tweet = data["data"]["caption"]["text"]
 
     links = tweet.scan(/\b(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)[-A-Z0-9+&@#\/%=~_|$?!:,.]*[A-Z0-9+&@#\/%=~_|$]/i)
     length = 140 - (links.count-1) * 22
