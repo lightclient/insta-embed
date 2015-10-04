@@ -40,7 +40,7 @@ class Post < ActiveRecord::Base
   end
 
   def post_to_twitter
-    image = File.new('/tmp/img.ext').do |f| f.write(open(media).read) end
+    image = File.new('/tmp/img.png').do |f| f.write(open(media).read) end
     user.twitter.update_with_media(tweet_body, image)
   end
 
