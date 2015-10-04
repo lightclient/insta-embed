@@ -1,8 +1,7 @@
 <% if current_user %>
 
   <% @posts = current_user.posts %>
-  
-  <div class="container">
+
     <div class="row">
       <div class="col-sm-6 col-md-4">
         <% @posts.each do |m| %>
@@ -17,7 +16,6 @@
         <% end %>
       </div>
     </div>
-  </div>
 
 
 <% elsif almost_current_user%>
