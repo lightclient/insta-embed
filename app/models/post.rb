@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
       ig_body: data["data"]["caption"]["text"],
       media: data["data"]["images"]["standard_resolution"]["url"],
       tweet_body: data["data"]["caption"]["text"],
-      user_id: user.id
+      user_id: user[0].id
     )
     user
   end
