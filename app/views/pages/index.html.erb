@@ -2,16 +2,17 @@
 
   <% @posts = current_user.posts %>
 
-    <div class="row">
-        <% @posts.each do |m| %>
-          <div class="col-sm-6 col-md-4">
-            <a href="#" class="thumbnail">
-                <img src="<%= m.media %>" alt="...">
-            </a>
-          </div>
-        <% end %>
-    </div>
-
+    <div class="container">
+      <div class="row">
+          <% @posts.each do |m| %>
+            <div class="col-sm-6 col-md-4">
+              <a href="#" class="thumbnail">
+                  <img src="<%= m.media %>" alt="...">
+              </a>
+            </div>
+          <% end %>
+      </div>
+    <div>
 
 <% elsif almost_current_user%>
 
