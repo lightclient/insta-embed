@@ -1,7 +1,10 @@
 require "net/http"
+require "open-uri"
 
 class Post < ActiveRecord::Base
   belongs_to :user
+
+  before_create :post_to_twitter
   validates :user_id, presence: true
 
   def self.create_post_from_media_id(id)
@@ -15,6 +18,16 @@ class Post < ActiveRecord::Base
     # Searches for the user whose Instagram ID matches the ID of the Instagram media POSTed to us
     user = User.where(instagram_uid: data["data"]["user"]["id"])
 
+
+    tweet = tweet_body: data["data"]["caption"]["text"]
+
+    links = tweet.scan(/\b(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)[-A-Z0-9+&@#\/%=~_|$?!:,.]*[A-Z0-9+&@#\/%=~_|$]/i)
+    length = 140 - (links.count-1) * 22
+
+    if tweet.chars.length > length
+      tweet = tweet[0][tweet.chars.length-3] + "..."
+    end
+
     # Creates an entry into the database with the info
     Post.create(
       ig_body: data["data"]["caption"]["text"],
@@ -24,6 +37,10 @@ class Post < ActiveRecord::Base
     )
     # Returns the user
     user
+  end
+
+  def post_to_twitter
+    user.twitter.update(tweet_body, open(media))
   end
 
 end
