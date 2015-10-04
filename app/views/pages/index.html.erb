@@ -5,10 +5,16 @@
     <div class="container">
       <div class="row">
           <% @posts.each do |m| %>
-            <div class="col-sm-6 col-md-4">
-              <a href="#" class="thumbnail">
-                  <img src="<%= m.media %>" alt="...">
-              </a>
+          <% if m.ig_body == m.tweet_body %>
+            <div class="image-holder g">
+          <% else %>
+            <div class="image-holder r">
+          <% end %>
+              <div class="col-sm-6 col-md-4">
+                <a href="#" class="thumbnail">
+                    <img class="bw" src="<%= m.media %>" alt="...">
+                </a>
+              </div>
             </div>
           <% end %>
       </div>
