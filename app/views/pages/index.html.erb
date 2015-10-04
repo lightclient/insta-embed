@@ -5,14 +5,9 @@
     <div class="row">
       <div class="col-sm-6 col-md-4">
         <% @posts.each do |m| %>
-          <div class="thumbnail">
-            <img src="<%= m.media %>" alt="...">
-            <div class="caption">
-              <h3><%= m.ig_body %></h3>
-              <!-- <p>...</p>
-              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-            </div>
-          </div>
+          <a href="#" class="thumbnail">
+              <img src="<%= m.media %>" alt="...">
+          </a>
         <% end %>
       </div>
     </div>
