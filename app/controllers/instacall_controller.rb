@@ -29,7 +29,7 @@ class InstacallController < ApplicationController
 
     @user = User.update_with_instagram(insta_hash) # Updates User with info from insta_hash
 
-    if @user.instagram_uid !== person.id # Checks to see if the @user has linked their Instagram account in the database
+    if @user.instagram_uid != person.id # Checks to see if the @user has linked their Instagram account in the database
       session[:almost_user_id] = @user.id # If they haven't, it sets their session variable with an 'almost' user ID and redirects them to link their accoun
     else
       session[:user_id] = session[:almost_user_id] # Initializes an actual session
