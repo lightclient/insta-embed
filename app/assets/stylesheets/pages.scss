@@ -7,11 +7,6 @@ img.bw {
   -webkit-filter: grayscale(100%);
 }
 
-.image-holder {
-    display:inline-block;
-    position: relative;
-}
-
 .image-holder.g:after {
     content:'';
     top: 0;
